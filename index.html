@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantyra - AI-Powered Quantitative Security</title>
+    <script src="analytics.js" defer></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0a0a2a 0%, #1a1a3a 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #00d4ff;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #00d4ff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-main {
+            font-size: 28px;
+            color: #00d4ff;
+        }
+        
+        .logo-tagline {
+            font-size: 12px;
+            color: #ffffff;
+            opacity: 0.8;
+            font-weight: 400;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav a:hover {
+            color: #00d4ff;
+        }
+        
+        .cta-button {
+            background: linear-gradient(90deg, #00d4ff 0%, #0099cc 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #00d4ff, #0099cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: #cccccc;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        
+        /* Services */
+        .services {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #00d4ff;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #00d4ff;
+        }
+        
+        .service-icon {
+            font-size: 40px;
+            color: #00d4ff;
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+        
+        .service-card p {
+            color: #cccccc;
+            margin-bottom: 20px;
+        }
+        
+        .price {
+            font-size: 28px;
+            font-weight: 700;
+            color: #00d4ff;
+            margin-bottom: 20px;
+        }
+        
+        /* Contact Form */
+        .contact {
+            padding: 60px 0;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #00d4ff;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 16px;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #00d4ff;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #888888;
+            margin-top: 60px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <a href="#" class="logo">
+                <div class="logo-text">
+                    <div class="logo-main">QUANTYRA</div>
+                    <div class="logo-tagline">AI-Powered Quantitative Security</div>
+                </div>
+            </a>
+            <nav class="nav">
+                <a href="#services">Services</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#contact">Contact</a>
+                <a href="#about">About</a>
+            </nav>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Quantitative Security for the Data-Driven Enterprise</h1>
+            <p>AI-powered threat intelligence, automated penetration testing, and compliance monitoring with measurable results. Protect what matters with data-driven security solutions.</p>
+            <a href="#contact" class="cta-button">Start Free Trial</a>
+        </section>
+
+        <!-- Services -->
+        <section id="services" class="services">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🛡️</div>
+                    <h3>AI Sentinel Monitoring</h3>
+                    <p>Continuous 24/7 threat detection using machine learning algorithms that adapt to your infrastructure.</p>
+                    <div class="price">$99/month</div>
+                    <a href="#contact" class="cta-button" style="padding: 10px 20px; font-size: 14px;">Select Plan</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>Vulnerability Assessment</h3>
+                    <p>Comprehensive security audit identifying weaknesses in your systems before attackers do.</p>
+                    <div class="price">$299/assessment</div>
+                    <a href="#contact" class="cta-button" style="padding: 10px 20px; font-size: 14px;">Book Now</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">⚔️</div>
+                    <h3>Penetration Testing</h3>
+                    <p>Ethical hacking services simulating real-world attacks to test your defenses.</p>
+                    <div class="price">$999/test</div>
+                    <a href="#contact" class="cta-button" style="padding: 10px 20px; font-size: 14px;">Schedule Test</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Compliance Package</h3>
+                    <p>GDPR, HIPAA, PCI-DSS compliance monitoring and reporting automation.</p>
+                    <div class="price">$499/month</div>
+                    <a href="#contact" class="cta-button" style="padding: 10px 20px; font-size: 14px;">Get Compliant</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section id="contact" class="contact">
+            <h2 class="section-title">Get Your Free Security Assessment</h2>
+            <form class="contact-form" id="leadForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required placeholder="John Smith">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Business Email</label>
+                    <input type="email" id="email" name="email" required placeholder="john@company.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="company">Company Name</label>
+                    <input type="text" id="company" name="company" required placeholder="Your Company Inc.">
+                </div>
+                
+                <div class="form-group">
+                    <label for="service">Service Interest</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a service</option>
+                        <option value="monitoring">AI Sentinel Monitoring</option>
+                        <option value="assessment">Vulnerability Assessment</option>
+                        <option value="pentest">Penetration Testing</option>
+                        <option value="compliance">Compliance Package</option>
+                        <option value="custom">Custom Solution</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Additional Details</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Tell us about your security needs..."></textarea>
+                </div>
+                
+                <button type="submit" class="cta-button" style="width: 100%; padding: 15px; font-size: 18px;">
+                    Request Free Assessment
+                </button>
+            </form>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2026 Quantyra. All rights reserved.</p>
+            <p>24/7 Support: support@quantyra.com | Sales: contact@quantyra.com</p>
+            <p>Global Operations: San Francisco | London | Singapore | Johannesburg</p>
+        </footer>
+    </div>
+
+    <script>
+        // Form submission handling
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                company: document.getElementById('company').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toISOString(),
+                source: 'Website Lead Form'
+            };
+            
+            // In production, this would send to your backend
+            // For now, log to console and show success message
+            console.log('Lead Captured:', formData);
+            
+            // Show success message
+            alert('Thank you! Your free security assessment request has been submitted. Our team will contact you within 24 hours.');
+            
+            // Reset form
+            this.reset();
+            
+            // In production: Send to webhook/API
+            // fetch('https://your-backend.com/api/leads', {
+            //     method: 'POST',
+            //     headers: {'Content-Type': 'application/json'},
+            //     body: JSON.stringify(formData)
+            // });
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -15,5 +15,5 @@ Professional AI-powered security solutions with measurable, data-driven results.
 - Data-driven protection insights
 
 ## Contact
-Email: contact@quantyra.com
-Website: https://quantyra.com (coming soon)
+Email: contact@quantyra.ai
+Website: https://quantyra.ai (coming soon)
